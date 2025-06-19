@@ -1,7 +1,8 @@
 document.addEventListener('DOMContentLoaded', function () {
+  // Always start with first 3 as unread
   let unreadIndexes = new Set([0, 1, 2]);
 
-  const notifications = window.data || data; // fallback if data is global
+  const notifications = window.data || data;
   const list = document.getElementById('list');
   const counter = document.querySelector('.notifications-counter');
   const markAllBtn = document.querySelector('.mark-all-button');
@@ -22,7 +23,7 @@ document.addEventListener('DOMContentLoaded', function () {
       avatar.className = 'notification-avatar';
       li.appendChild(avatar);
 
-      // Info container (required by assessment)
+      // Info container
       const infoDiv = document.createElement('div');
       infoDiv.className = 'notification-infos';
 
@@ -120,4 +121,4 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // Initial render
   renderNotifications();
-});
+gi});
