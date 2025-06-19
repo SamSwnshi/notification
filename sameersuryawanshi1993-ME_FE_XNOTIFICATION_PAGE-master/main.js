@@ -1,4 +1,4 @@
-// Always reset unreadIndexes to [0,1,2] on page reload
+// Only initialize unreadIndexes ONCE at the top
 let unreadIndexes = new Set([0, 1, 2]);
 
 const notifications = window.data || data; // fallback if data is global
@@ -118,6 +118,5 @@ markAllBtn.addEventListener('click', function () {
   renderNotifications();
 });
 
-// Always reset unreadIndexes and render on page load
-unreadIndexes = new Set([0, 1, 2]);
+// Initial render (DO NOT reset unreadIndexes here)
 renderNotifications();
