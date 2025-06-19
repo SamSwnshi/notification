@@ -118,5 +118,6 @@ markAllBtn.addEventListener('click', function () {
   renderNotifications();
 });
 
-// Initial render
+// Always reset unreadIndexes and render on page load
+unreadIndexes = new Set([0, 1, 2]);
 renderNotifications();
