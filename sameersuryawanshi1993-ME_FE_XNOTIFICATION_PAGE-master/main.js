@@ -1,10 +1,10 @@
-const notifications = window.data || data; 
+// Always reset unreadIndexes to [0,1,2] on page reload
+let unreadIndexes = new Set([0, 1, 2]);
+
+const notifications = window.data || data; // fallback if data is global
 const list = document.getElementById('list');
 const counter = document.querySelector('.notifications-counter');
 const markAllBtn = document.querySelector('.mark-all-button');
-
-
-let unreadIndexes = new Set([0, 1, 2]);
 
 function renderNotifications() {
   list.innerHTML = '';
