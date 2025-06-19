@@ -1,10 +1,9 @@
-
-
-const notifications = window.data || data; // fallback if data is global
+const notifications = window.data || data; 
 const list = document.getElementById('list');
+const counter = document.querySelector('.notifications-counter');
 const markAllBtn = document.querySelector('.mark-all-button');
 
-// Track unread status (first 3 are unread by default)
+
 let unreadIndexes = new Set([0, 1, 2]);
 
 function renderNotifications() {
@@ -23,9 +22,9 @@ function renderNotifications() {
     avatar.className = 'notification-avatar';
     li.appendChild(avatar);
 
-    // Content container (flex row)
-    const contentDiv = document.createElement('div');
-    contentDiv.className = 'notification-content';
+    // Info container (required by assessment)
+    const infoDiv = document.createElement('div');
+    infoDiv.className = 'notification-infos';
 
     // Inline notification text
     const textDiv = document.createElement('div');
@@ -53,12 +52,13 @@ function renderNotifications() {
       textDiv.appendChild(postLink);
     }
 
+    infoDiv.appendChild(textDiv);
+
     // Time (below text)
     const timeDiv = document.createElement('div');
     timeDiv.className = 'notification-time';
     timeDiv.textContent = notif.info.time;
-    contentDiv.appendChild(textDiv);
-    contentDiv.appendChild(timeDiv);
+    infoDiv.appendChild(timeDiv);
 
     // Private message (if any)
     if (notif.info.privateMessage) {
@@ -66,7 +66,7 @@ function renderNotifications() {
       pmDiv.className = 'notification-text-private-message';
       pmDiv.textContent = notif.info.privateMessage;
       pmDiv.style.display = 'none';
-      contentDiv.appendChild(pmDiv);
+      infoDiv.appendChild(pmDiv);
       // Click to toggle private message
       li.addEventListener('click', function (e) {
         if (e.target.tagName.toLowerCase() === 'a') return;
@@ -86,7 +86,7 @@ function renderNotifications() {
       });
     }
 
-    li.appendChild(contentDiv);
+    li.appendChild(infoDiv);
 
     // Notification picture (if any)
     if (notif.info.picture) {
@@ -107,6 +107,9 @@ function renderNotifications() {
 
     list.appendChild(li);
   });
+  // Update counter
+  counter.textContent = unreadIndexes.size;
+  counter.style.display = 'inline-block';
 }
 
 // Mark all as read

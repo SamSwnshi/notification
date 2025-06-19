@@ -1,0 +1,255 @@
+@font-face {
+  font-family: 'Plus Jakarta Sans';
+  src: url('../assets/fonts/PlusJakartaSans-VariableFont_wght.ttf') format('truetype');
+  font-weight: 400 800;
+  font-style: normal;
+}
+
+body {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  background: #f7fafd;
+  margin: 0;
+  padding: 0;
+  color: #222;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  max-width: 540px;
+  margin: 48px auto 0 auto;
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 4px 32px rgba(0,0,0,0.08);
+  padding: 32px 32px 24px 32px;
+  display: flex;
+  flex-direction: column;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 32px;
+}
+
+header h1 {
+  font-size: 1.7rem;
+  font-weight: 800;
+  margin: 0;
+  color: #1c202b;
+  letter-spacing: 0.5px;
+}
+
+.notifications-counter {
+  background: #0a327b;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 700;
+  border-radius: 8px;
+  padding: 2px 10px;
+  margin-left: 10px;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.mark-all-button {
+  background: none;
+  border: none;
+  color: #5e6778;
+  font-weight: 700;
+  font-size: 1.05rem;
+  cursor: pointer;
+  border-radius: 6px;
+  padding: 6px 16px;
+  transition: background 0.2s, color 0.2s;
+  float: right;
+}
+.mark-all-button:hover, .mark-all-button:focus {
+  background: #e5effa;
+  color: #0a327b;
+  outline: 2px solid #0a327b;
+}
+
+#list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.notification-item {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  background: #fff;
+  border-radius: 10px;
+  padding: 18px 14px;
+  margin-bottom: 10px;
+  transition: background 0.2s, box-shadow 0.2s;
+  cursor: pointer;
+  position: relative;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.03);
+}
+.notification-item:hover, .notification-item:focus {
+  background: #f0f6fa;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+}
+
+.new-notification {
+  background: #f7fafd;
+}
+
+.notification-avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-top: 0;
+  flex-shrink: 0;
+  border: 2px solid #e5effa;
+}
+
+.notification-infos {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  justify-content: center;
+  min-width: 0;
+}
+
+.notification-text {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 4px;
+  font-size: 1.08rem;
+  min-width: 0;
+}
+
+.profile-link strong,
+.notification-link-post strong {
+  font-weight: 800;
+  color: #1c202b;
+}
+
+.profile-link {
+  color: #1c202b;
+  font-weight: 800;
+  text-decoration: none;
+  margin-right: 4px;
+  transition: text-decoration 0.2s;
+}
+.profile-link:hover, .profile-link:focus {
+  text-decoration: underline;
+}
+
+.notification-action {
+  color: #5e6778;
+  font-weight: 500;
+}
+
+.notification-link-post {
+  color: #1c202b;
+  font-weight: 800;
+  text-decoration: none;
+  margin-left: 4px;
+  transition: text-decoration 0.2s;
+}
+.notification-link-post:hover, .notification-link-post:focus {
+  text-decoration: underline;
+}
+
+.notification-dot {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  background: #f65351;
+  border-radius: 50%;
+  margin-left: 10px;
+  vertical-align: middle;
+  align-self: center;
+}
+
+.notification-time {
+  color: #939dae;
+  font-size: 0.98rem;
+  margin-top: 2px;
+}
+
+.notification-text-private-message {
+  background: #f7fafd;
+  border: 1px solid #dde7ee;
+  border-radius: 6px;
+  padding: 16px;
+  margin-top: 12px;
+  color: #5e6778;
+  font-size: 1rem;
+  display: block;
+}
+
+.notification-picture {
+  width: 48px;
+  height: 48px;
+  border-radius: 8px;
+  object-fit: cover;
+  margin-left: 18px;
+  align-self: center;
+  flex-shrink: 0;
+}
+
+footer {
+  text-align: center;
+  margin: 32px 0 16px 0;
+  color: #939dae;
+  font-size: 1rem;
+}
+footer a {
+  color: #0a327b;
+  text-decoration: none;
+  font-weight: 700;
+}
+footer a:hover, footer a:focus {
+  text-decoration: underline;
+}
+
+@media (max-width: 700px) {
+  main {
+    max-width: 98vw;
+    padding: 16px 4vw 16px 4vw;
+  }
+  .notification-avatar, .notification-picture {
+    width: 40px;
+    height: 40px;
+  }
+  .notification-picture {
+    margin-left: 8px;
+  }
+}
+@media (max-width: 480px) {
+  main {
+    padding: 8px 2vw 8px 2vw;
+  }
+  header h1 {
+    font-size: 1.1rem;
+  }
+  .mark-all-button {
+    font-size: 0.95rem;
+    padding: 4px 10px;
+  }
+  .notification-item {
+    padding: 10px 4px;
+    gap: 8px;
+  }
+  .notification-avatar, .notification-picture {
+    width: 32px;
+    height: 32px;
+  }
+  .notification-picture {
+    margin-left: 4px;
+  }
+  .notification-text-private-message {
+    font-size: 0.95rem;
+    padding: 10px;
+  }
+} 
