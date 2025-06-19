@@ -97,13 +97,14 @@ document.addEventListener('DOMContentLoaded', function () {
         li.appendChild(pic);
       }
 
-      // Dot for unread (at the end)
-      if (unreadIndexes.has(idx)) {
-        const dot = document.createElement('span');
-        dot.className = 'notification-dot';
-        dot.title = 'Unread';
-        li.appendChild(dot);
+      // Always render the dot, hide it if read
+      const dot = document.createElement('span');
+      dot.className = 'notification-dot';
+      dot.title = 'Unread';
+      if (!unreadIndexes.has(idx)) {
+        dot.style.display = 'none';
       }
+      li.appendChild(dot);
 
       list.appendChild(li);
     });
