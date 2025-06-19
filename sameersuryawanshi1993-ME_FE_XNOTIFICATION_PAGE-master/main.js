@@ -1,5 +1,4 @@
 document.addEventListener('DOMContentLoaded', function () {
-  // Always start with first 3 as unread
   let unreadIndexes = new Set([0, 1, 2]);
 
   const notifications = window.data || data;
